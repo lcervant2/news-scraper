@@ -1,0 +1,16 @@
+<div class="card mb-4">
+    {{#if article.image}}
+        <a href="/articles/{{article.id}}">
+            <img class="card-img-top" src="{{article.image}}">
+        </a>
+    {{/if}}
+    <div class="card-body">
+        <a href="/articles/{{article.id}}"><h5 class="card-title mb-0 text-dark">{{article.headline}}</h5></a>
+        <p class="mb-2"><small class="text-muted">Scraped on {{dateFormat article.createdAt "M/D"}} at {{dateFormat article.createdAt "h:mm a"}}</small></p>
+        <p class="card-text">{{article.summary}}</p>
+        {{#unless hideComments}}
+            <a href="/articles/{{article.id}}" class="btn btn-light btn-sm mr-2 mb-lg-0 mb-md-2"><i class="fas fa-comments"></i>&nbsp;&nbsp;{{article.commentCount}} comment{{#compare article.commentCount "!=" 1}}s{{/compare}}</a>
+        {{/unless}}
+        <a href="{{article.url}}" target="_blank" class="btn btn-light btn-sm"><i class="fas fa-globe"></i>&nbsp;&nbsp;Visit website</a>
+    </div>
+</div>

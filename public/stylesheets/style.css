@@ -1,0 +1,12 @@
+a:hover {
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1000px;
+}
+
+.card-text {
+    font-size: 0.9em;
+    color: #555;
+}

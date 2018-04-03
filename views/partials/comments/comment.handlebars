@@ -1,0 +1,29 @@
+<div class="card mb-4">
+    <div class="card-body">
+        <p class="card-text mb-0">{{comment.text}}</p>
+        <small class="text-secondary">
+            {{dateFormat comment.createdAt "MMMM Do YYYY, h:mm a"}}
+            <a href="#delete-{{comment.id}}" class="text-secondary ml-3" data-toggle="modal"><i class="fas fa-trash"></i>&nbsp;&nbsp;Delete</a>
+        </small>
+    </div>
+</div>
+
+<div class="modal fade" id="delete-{{comment.id}}" tabindex="-1" role="dialog" aria-labelledby="delete-{{comment.id}}" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Are you sure?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Deleting this comment means no one will be able to see it anymore.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <a href="/comments/{{comment.id}}/remove" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>

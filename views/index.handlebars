@@ -1,0 +1,45 @@
+<div class="container mt-4">
+
+    {{#if scraped}}
+        <div class="alert alert-success alert-dismissable fade show" role="alert">
+            {{#compare scraped "==" 0}}
+                All articles have been successfully scraped from the website.
+            {{/compare}}
+            {{#compare scraped "!=" 0}}
+                Successfully scraped {{scraped}} article{{#compare scraped "!=" 1}}s{{/compare}}!
+            {{/compare}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {{/if}}
+
+    {{#unless articles.length}}
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <div class="jumbotron pt-5 pb-4">
+                    <h1 class="display-4">No articles... yet!</h1>
+                    <p class="lead">Click the 'Scrape new articles!' button to grab more news from the web.</p>
+                    <hr class="my-4">
+                    <p>Once the web scraper pulls some articles from the web you'll be able to comment on them.</p>
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg mt-2" href="/scrape" role="button">Scrape new articles!</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    {{else}}
+        <div class="card-columns">
+            {{#each articles}}
+                {{> articles/article
+                        article=this
+                }}
+                <!--<div class="col-md-4">-->
+                    <!---->
+                <!--</div>-->
+            {{/each}}
+        </div>
+    {{/unless}}
+
+</div>
+
