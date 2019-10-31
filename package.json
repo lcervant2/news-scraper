@@ -14,7 +14,7 @@
     "handlebars-dateformat": "^1.1.1",
     "http-errors": "~1.6.2",
     "mongoose": "^5.0.11",
-    "morgan": "~1.9.0",
+    "morgan": "~1.9.1",
     "request": "^2.85.0",
     "serve-favicon": "^2.4.5"
   }
